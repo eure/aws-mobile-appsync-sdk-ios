@@ -160,6 +160,12 @@ public class AWSAppSyncClient {
         let accessState = isReachable ? ClientNetworkAccessState.Online : .Offline
         self.connectionStateChangeHandler?.stateChanged(networkState: accessState)
     }
+  
+  public func updateNetworkTransport(_ networkTransport: AWSNetworkTransport) {
+      self.httpTransport = networkTransport
+      self.apolloClient?.networkTransport = networkTransport
+      self.mutationQueue.updateNetworkTransport(networkTransport: networkTransport)
+  }
 
     /// Clears apollo cache
     ///

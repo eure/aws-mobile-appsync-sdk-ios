@@ -56,6 +56,10 @@ final class AWSPerformMutationQueue {
         }
         
     }
+  
+  func updateNetworkTransport(networkTransport: AWSNetworkTransport) {
+    self.networkClient = networkTransport
+  }
 
     // MARK: - Queue operations
 
